@@ -27,25 +27,27 @@ public void KreiranjeKnjige(int brojKnjige,String imeKnjige)
 	{
 		this.brojKnjige=brojKnjige;
 		brojacKnjiga++;
-		validacijaBrojaKnjige(this.brojKnjige);
+		int validacija=validacijaBrojaKnjige(this.brojKnjige);
+		if(validacija==0)
+		{
 		ListaKnjiga.add(this);
-		
+		}
 		this.imeKnjige=imeKnjige;
 		
 	}
 	
 	
 	
-	public void validacijaBrojaKnjige(int brojKnjige)
+	public int validacijaBrojaKnjige(int brojKnjige)
 	{
-		
+		int validacija=0;
 		for(int i=0; i<ListaKnjiga.size(); i++)
 		{
 			if((brojKnjige==ListaKnjiga.get(i).brojKnjige)||(brojKnjige<0))
 			{System.out.println("Unesen je negativan broj ili vec postojuci broj knjige.");
-			;break;}else{continue;}
+			;validacija=1;break;}else{continue;}
 		}
-	
+	return validacija;
 	}
 		
 	

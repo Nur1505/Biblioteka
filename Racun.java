@@ -30,18 +30,19 @@ public class Racun implements Serializable {
 			protected int brojPosudjenihKnjigaJednogRacuna=0;
 			static int daLiPostojiRacun=0;
 			
-		
 			
 			Racun(int brojRacuna,String imeMusterije) throws IOException, ClassNotFoundException
 			{	
 				
-				
-			
 				this.brojRacuna=brojRacuna;
 				this.imeMsterije=imeMusterije;
-				validacijaBrojaRacuna(brojRacuna);
-				ListaRacuna.add(this);
 				
+				
+				int validacija=validacijaBrojaRacuna(brojRacuna);
+				if(validacija==0)
+				{
+				ListaRacuna.add(this);
+				}
 				
 				
 				
@@ -50,16 +51,16 @@ public class Racun implements Serializable {
 			
 			
 			
-			public void validacijaBrojaRacuna(int brojRacuna)
-			{
-				
+			public int validacijaBrojaRacuna(int brojRacuna)
+			{int validacija=0;
+				 
 				for(int i=0; i<ListaRacuna.size(); i++)
 				{
 					if((brojRacuna==ListaRacuna.get(i).brojRacuna)||(brojRacuna<0))
 					{System.out.println("Unesen je negativan broj ili vec postojuci broj racuna.");
-					;break;}else{continue;}
+					;validacija=1;break;}else{continue;}
 				}
-			
+			return validacija;
 			}
 				
 			

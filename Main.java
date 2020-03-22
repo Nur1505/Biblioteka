@@ -75,7 +75,7 @@ public class Main {
 					if(Racun.ListaRacuna.get(i).brojRacuna==uneseniBrojRacuna1)
 					{	kontorlaRacuna++;
 					Racun.ListaRacuna.get(i).brojPosudjenihKnjigaJednogRacuna++;
-						if(Racun.ListaRacuna.get(i).brojPosudjenihKnjigaJednogRacuna<3)
+						if(Racun.ListaRacuna.get(i).brojPosudjenihKnjigaJednogRacuna<=3)
 						{
 							for(int k=0;k<Knjiga.ListaKnjiga.size();k++)
 							{
